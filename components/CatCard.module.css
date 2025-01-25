@@ -1,0 +1,26 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    margin: 16px;
+    transition: transform 0.2s;
+  }
+  
+  .imageContainer {
+    overflow: hidden;
+    border-radius: 8px;
+    width: 300px; 
+    height: 300px;
+    margin: 0 auto;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s;
+  }
+  
+  .imageContainer:hover .image {
+    transform: scale(1.1);
+  }
