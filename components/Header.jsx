@@ -6,7 +6,9 @@ export default function Header() {
       <nav>
         <ul className={styles.nav}>
           <li>Acceuil</li>
-          <li>Our Paws</li>
+          <li>
+             <Link href="/CatCard.jsx">Our Paws</Link>
+          </li>
           <li>Menu</li>
           <li>Contact</li>
         </ul>
