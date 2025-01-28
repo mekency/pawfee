@@ -10,7 +10,6 @@ export default function CatCard({ image, name, description, story }) {
       <h2>{name}</h2>
       <p>{description}</p>
       <p>{story}</p>
-      <button className={styles.detailButton}>+</button>
     </div>
   );
-}  
+}
