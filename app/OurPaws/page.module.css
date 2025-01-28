@@ -1,5 +1,33 @@
 .catList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px;
+}
+
+.catList > div {
+  flex: 1 1 calc(25% - 40px); 
+  max-width: 300px; 
+  min-width: 200px; 
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+p {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.catCard {
+  border: 1px solid ; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  padding: 15px; 
+  text-align: center;
+}

@@ -1,7 +1,7 @@
 import styles from './Header.module.css';
 import Link from 'next/link';
 
-//ajoute de liaison pour les pages
+//ajoute de liaison pour les page 
 export default function Header() {
   return ( <header className={styles.header}>
     
@@ -16,11 +16,12 @@ export default function Header() {
             <li>
               <Link href="/">Menu</Link>
             </li>
+              <Link href="/">Contact</Link>
             <li>
               <Link href="/">Contact</Link>
             </li>
         </ul>
       </nav>
     </header>
-  );
+    );
 }
