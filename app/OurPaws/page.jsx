@@ -2,7 +2,11 @@ import React from 'react';
 import CatCard from '../../components/CatCard';
 import styles from './page.module.css';
 
-export default function OurPawsPage() {
+
+// modiffication de la page de page.js a pages.jsx 
+
+//modification de nom de la fonction 
+export default function Ourpaws() {
   return (
     <div>
       <h1>Bienvenu</h1>
@@ -13,6 +17,7 @@ export default function OurPawsPage() {
           name="Whiskers"
           description="A playful and curious cat."
           story="Whiskers was found wandering the streets and loves to explore."
+          
         />
         <CatCard
           image="2.jpg"
