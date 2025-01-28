@@ -6,7 +6,7 @@ export default function OurPawsPage() {
   return (
     <div className={styles.container}>
       <h1>Welcome to Our Paws Page</h1>
-      <p>This is a sample page for the Our Paws section of the Pawfee app.</p>
+      <p>Meet our furry residents who are looking for their forever homes.</p>
       <div className={styles.catList}>
         <CatCard
           image="1.jpg"
