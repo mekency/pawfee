@@ -1,15 +1,15 @@
 import React from 'react';
+import Link from 'next/link';
 import styles from './CatCard.module.css';
 
-export default function CatCard({ image, name, description, story }) {
+export default function CatCard({ image, name, link }) {
   return (
     <div className={styles.card}>
-      <div className={styles.imageContainer}>
-        <img src={image} alt={name} className={styles.image} />
-      </div>
+      <img src={image} alt={name} className={styles.image} />
       <h2>{name}</h2>
-      <p>{description}</p>
-      <p>{story}</p>
+      <Link href={link} legacyBehavior>
+        <a className={styles.plusSign}>+</a>
+      </Link>
     </div>
   );
 }

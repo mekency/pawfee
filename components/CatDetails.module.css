@@ -1,0 +1,35 @@
+.container {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 10px 0;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.text {
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.text strong {
+  font-weight: bold;
+}

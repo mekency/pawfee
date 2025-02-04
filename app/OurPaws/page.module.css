@@ -1,7 +1,7 @@
 .container {
-  background-color: rgb(219, 203, 179); /* Same background color as the main page */
+  background-color: rgb(219, 203, 179); 
   padding: 20px;
-  min-height: 100vh; /* Ensure it covers the full viewport height */
+  min-height: 100vh; 
   display: flex;
   flex-direction: column;
   align-items: center;
