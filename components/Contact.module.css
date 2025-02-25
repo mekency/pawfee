@@ -1,20 +1,20 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    max-width: 30rem;
+    gap: 1rem;
+    max-width: 100%;
     background: #f9f9f9;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+    width: 100%;
 }
-
 .form label {
     display: flex;
     flex-direction: column;
     font-weight: 600;
     color: #333;
+    text-align: left;
 }
 
 .form input, 
@@ -31,6 +31,11 @@
     border-color: #007bff;
     outline: none;
     box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+.container p {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(219, 203, 179);  
 }
 
 .form button {
@@ -59,7 +64,17 @@
 }
 .erreur {
     color: #a00;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
 }
-.form p {
-    text-align: center;
+
+@media (max-width: 600px) {
+    .row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .form {
+        padding: 1rem;
+    }
 }
