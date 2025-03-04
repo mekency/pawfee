@@ -1,75 +1,35 @@
 "use client";
 
 import { useActionState } from 'react';
+import { validateLogin } from '@/validation/login';
+import { loginServeur } from '@/Actions/login';
+import { useRouter } from 'next/navigation'
+
+
 import styles from './Contact.module.css';
-import contact from '@/app/Contact/page';
+
 
 export default function Contact() {
+    const router = useRouter();
     /**
      * Fonction de validation du formulaire
      * @param {FormData} formData - Données du formulaire soumises
      */
-    const contact = (previousState, formData) => {
-        // Récupération des valeurs du formulaire
-        const nom = formData.get('nom');
-        const prenom = formData.get('prenom');
-        const telephone = formData.get('telephone');
-        const courriel = formData.get('courriel');
-        const municipalite = formData.get('municipalite');
-        const message = formData.get('message');
+    const contact = async (previousState, formData) => {
+        useRouter
+        let [erreur, newState] = validateLogin(formData);
 
-        // Initialisation de l'état du formulaire avec erreurs nulles
-        let newState = {
-            nom: { valeur: '', erreur: null },
-            prenom: { valeur: '', erreur: null },
-            telephone: { valeur: '', erreur: null },
-            courriel: { valeur: '', erreur: null },
-            municipalite: { valeur: '', erreur: null },
-            message: { valeur: '', erreur: null }
-        };
-
-        let erreur = false;
-        
-        // Validation des champs
-        if (!prenom) {
-            erreur = true;
-            newState.prenom.erreur = 'Veuillez entrer votre prénom';
+        if(!erreur) {
+            [erreur, newState] = await loginServeur(formData);
         }
-        if (!nom) {
-            erreur = true;
-            newState.nom.erreur = 'Veuillez entrer votre nom';
-        }
-        if (!telephone) {
-            erreur = true;
-            newState.telephone.erreur = 'Veuillez entrer un numéro de téléphone valide.';
-        } else if (!telephone.match(/^\d{10}$/)) {
-            erreur = true;
-            newState.telephone.erreur = 'Veuillez entrer un numéro de téléphone de 10 chiffres.';
-        }
-        if (!courriel) {
-            erreur = true;
-            newState.courriel.erreur = 'Veuillez entrer une adresse courriel.';
-        } else if (!courriel.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-            erreur = true;
-            newState.courriel.erreur = 'Veuillez entrer une adresse courriel valide.';
-        }
-        if (!municipalite) {
-            erreur = true;
-            newState.municipalite.erreur = 'Veuillez entrer votre municipalité';
-        }
-        if (!message) {
-            erreur = true;
-            newState.message.erreur = 'Veuillez entrer un message';
-        }
-
         // Mise à jour des valeurs du formulaire en cas d'erreur
         if (erreur) {
-            newState.prenom.valeur = prenom;
-            newState.nom.valeur = nom;
-            newState.telephone.valeur = telephone;
-            newState.courriel.valeur = courriel;
-            newState.municipalite.valeur = municipalite;
-            newState.message.valeur = message;
+            newState.prenom.valeur =formData.get('prenom');
+            newState.nom.valeur = formData.get('nom');
+            newState.telephone.valeur = formData.get('telephone');
+            newState.courriel.valeur = formData.get('courriel');
+            newState.municipalite.valeur = formData.get('municipalite');
+            newState.message.valeur = formData.get('message');
         }
 
         return newState;
