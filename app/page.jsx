@@ -1,6 +1,14 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 
+/**
+ * @type {import("next").Metadata}
+ */
+export const metadata = {
+  title: "Accueil | Pawfee",
+  description: "Page d'accueil du site de ladoption des chats.",
+};
+
 export default function Home() {
   return (
     <div className={styles.container}>

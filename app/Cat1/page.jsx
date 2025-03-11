@@ -2,6 +2,15 @@ import React from 'react';
 import CatDetails from '../../components/CatDetails';
 import styles from './page.module.css';
 
+
+/**
+ * @type {import("next").Metadata}
+ */
+export const metadata = {
+  title: "Pawfee | Whiskers",
+  description: "A playful and curious cat who loves to explore. Whiskers is very intelligent and enjoys solving puzzles.",
+};
+
 export default function Cat1() {
   return (
     <div className={styles.container}>

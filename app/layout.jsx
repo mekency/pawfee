@@ -2,14 +2,12 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../app/globals.css';
 
+/**
+ * @type {import("next").Metadata}
+ */
 export const metadata = {
-  title: "Pawfee - Adoption d'animaux",
-  description: "Découvrez des centaines d'animaux à l'adoption dans différents refuges à travers la province de ontario.",
-  keywords: "adoption, animaux, refuges, Québec, chiens, chats, adoption d'animaux",
-  author: "Pawfee",
-  viewport: "width=device-width, initial-scale=1.0",
-  robots: "index, follow",
-  charset: "UTF-8",
+  title: "Pawfee",
+  description: "Site web démontrant diverses chats disponible pour l'adoption ainsi que tout leurs historiques et caractéres.",
 };
 
 export default function RootLayout({ children }) {

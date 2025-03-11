@@ -2,6 +2,16 @@ import React from 'react';
 import CatCard from '../../components/CatCard';
 import styles from './page.module.css';
 
+
+/**
+ * @type {import("next").Metadata}
+ */
+export const metadata = {
+  title: 'OurPaws | Pawfee',
+  description: 'la page montrant tout les chats disponible pour ladoption et tout leurs caractéres .'
+}
+
+
 export default function OurPawsPage() {
   return (
     <div className={styles.container}>
