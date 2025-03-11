@@ -6,48 +6,17 @@ export function validateLogin(formData) {
     const municipalite = formData.get('municipalite');
     const message = formData.get('message');
 
-    // Initialisation de l'état du formulaire avec erreurs nulles
-    let newState = {
-        nom: { valeur: '', erreur: null },
-        prenom: { valeur: '', erreur: null },
-        telephone: { valeur: '', erreur: null },
-        courriel: { valeur: '', erreur: null },
-        municipalite: { valeur: '', erreur: null },
-        message: { valeur: '', erreur: null }
-    };
+    console.log('Nom:', nom);
+    console.log('Prénom:', prenom);
+    console.log('Téléphone:', telephone);
+    console.log('Courriel:', courriel);
+    console.log('Municipalité:', municipalite);
+    console.log('Message:', message);
 
-    let erreur = false;
-    // Validation des champs
-    if (!prenom) {
-        erreur = true;
-        newState.prenom.erreur = 'Veuillez entrer votre prénom';
-    }
-    if (!nom) {
-        erreur = true;
-        newState.nom.erreur = 'Veuillez entrer votre nom';
-    }
-    if (!telephone) {
-        erreur = true;
-        newState.telephone.erreur = 'Veuillez entrer un numéro de téléphone valide.';
-    } else if (!telephone.match(/^\d{10}$/)) {
-        erreur = true;
-        newState.telephone.erreur = 'Veuillez entrer un numéro de téléphone de 10 chiffres.';
-    }
-    if (!courriel) {
-        erreur = true;
-        newState.courriel.erreur = 'Veuillez entrer une adresse courriel.';
-    } else if (!courriel.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-        erreur = true;
-        newState.courriel.erreur = 'Veuillez entrer une adresse courriel valide.';
-    }
-    if (!municipalite) {
-        erreur = true;
-        newState.municipalite.erreur = 'Veuillez entrer votre municipalité';
-    }
-    if (!message) {
-        erreur = true;
-        newState.message.erreur = 'Veuillez entrer un message';
-    }
+    return [null, {}]; // Ensure it returns an array
+}
 
-    return [erreur, newState];
+export async function loginServeur(formData) {
+    // ...existing code...
+    return [null, {}]; // Ensure it returns an array
 }

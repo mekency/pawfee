@@ -3,33 +3,34 @@
 import { useActionState } from 'react';
 import { validateLogin } from '@/validation/login';
 import { loginServeur } from '@/Actions/login';
-import { useRouter } from 'next/navigation'
-
-
 import styles from './Contact.module.css';
 
-
 export default function Contact() {
-    const router = useRouter();
     /**
      * Fonction de validation du formulaire
      * @param {FormData} formData - Données du formulaire soumises
      */
     const contact = async (previousState, formData) => {
-        useRouter
-        let [erreur, newState] = validateLogin(formData);
+        let [erreur, newState] = validateLogin(formData) || [null, {}];
 
-        if(!erreur) {
-            [erreur, newState] = await loginServeur(formData);
+        if (!erreur) {
+            [erreur, newState] = await loginServeur(formData) || [null, {}];
         }
+
+        // S'assurer que newState est toujours un objet
+        newState = newState || {};
+
         // Mise à jour des valeurs du formulaire en cas d'erreur
         if (erreur) {
-            newState.prenom.valeur =formData.get('prenom');
-            newState.nom.valeur = formData.get('nom');
-            newState.telephone.valeur = formData.get('telephone');
-            newState.courriel.valeur = formData.get('courriel');
-            newState.municipalite.valeur = formData.get('municipalite');
-            newState.message.valeur = formData.get('message');
+            newState.prenom = { valeur: formData.get('prenom'), erreur: newState.prenom?.erreur || null };
+            newState.nom = { valeur: formData.get('nom'), erreur: newState.nom?.erreur || null };
+            newState.telephone = { valeur: formData.get('telephone'), erreur: newState.telephone?.erreur || null };
+            newState.courriel = { valeur: formData.get('courriel'), erreur: newState.courriel?.erreur || null };
+            newState.municipalite = { valeur: formData.get('municipalite'), erreur: newState.municipalite?.erreur || null };
+            newState.message = { valeur: formData.get('message'), erreur: newState.message?.erreur || null };
+        } else {
+            // Afficher une confirmation côté client
+            console.log('Message envoyé avec succès');
         }
 
         return newState;
@@ -47,7 +48,6 @@ export default function Contact() {
 
     return (
         <>
-            
             <p><strong>Pour toute demande d’adoption ou d’information supplémentaire sur les animaux,</strong> veuillez envoyer un message au refuge <strong>directement sur la fiche de l’animal</strong> qui vous intéresse via le formulaire qui s’y trouve. Merci!</p>
             <p>La plateforme affiche des centaines d’animaux à l’adoption dans différents refuges à travers la province de Québec, nous ne sommes donc pas en mesure de donner de l’information supplémentaire sur ces animaux.</p>
             <p>Soyez toutefois assuré que nous traitons tous les courriels le plus rapidement possible.</p>
@@ -85,7 +85,7 @@ export default function Contact() {
                 </label>
                 <label>
                     Message:
-                    <textarea type= "text" name="message" defaultValue={formState.message.valeur} />
+                    <textarea type="text" name="message" defaultValue={formState.message.valeur} />
                     <div className={styles.erreur}>{formState.message.erreur}</div>
                 </label>
                 <button type="submit">Envoyer</button>

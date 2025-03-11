@@ -1,6 +1,5 @@
 "use server"
 
-import { redirect } from "next/navigation";
 import { validateLogin } from "@/validation/login"
 
 export async function loginServeur(formData) {
@@ -10,12 +9,8 @@ export async function loginServeur(formData) {
         return [erreur, newState];
     }
 
-    const courriel = formData.get('courriel');
-    if(courriel !== 'mouloud12@collegelacite.ca') {
-        erreur = true;
-        newState.courriel.erreur = 'Aucun compte avec cette adresse courriel.';
-        return [erreur, newState];
-    }
+    // Afficher les informations du formulaire dans la console du serveur
+    console.log('Données du formulaire:', Object.fromEntries(formData.entries()));
 
-    redirect('/');
-}  
+    return [erreur, newState];
+}

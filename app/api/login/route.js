@@ -6,11 +6,11 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request) {
     const data = await request.json();
 
-    console.log('Serveur');
-    console.log(data);
+    // Afficher les informations du formulaire dans la console du serveur
+    console.log('Données du formulaire:', data);
 
     return NextResponse.json(
-        {test: 'allo'}, 
-        { status: 400 }
+        { message: 'Message reçu avec succès' }, 
+        { status: 200 }
     );
 }
