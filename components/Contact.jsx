@@ -1,14 +1,17 @@
 "use client";
 
 import { useActionState } from 'react';
+import { useState } from 'react'; // Import useState
 import { validateLogin } from '@/validation/login';
 import { loginServeur } from '@/Actions/login';
 import styles from './Contact.module.css';
 
 export default function Contact() {
+    const [successMessage, setSuccessMessage] = useState(''); // State for success message
+
     /**
      * Fonction de validation du formulaire
-     * @param {FormData} formData - Données du formulaire soumises
+     * @param {FormDsata} formData - Données du formulaire soumises
      */
     const contact = async (previousState, formData) => {
         let [erreur, newState] = validateLogin(formData) || [null, {}];
@@ -29,8 +32,7 @@ export default function Contact() {
             newState.municipalite = { valeur: formData.get('municipalite'), erreur: newState.municipalite?.erreur || null };
             newState.message = { valeur: formData.get('message'), erreur: newState.message?.erreur || null };
         } else {
-            // Afficher une confirmation côté client
-            console.log('Message envoyé avec succès');
+            setSuccessMessage('Votre message a été envoyé avec succès.'); // Set success message
         }
 
         return newState;
@@ -52,6 +54,8 @@ export default function Contact() {
             <p>La plateforme affiche des centaines d’animaux à l’adoption dans différents refuges à travers la province de Québec, nous ne sommes donc pas en mesure de donner de l’information supplémentaire sur ces animaux.</p>
             <p>Soyez toutefois assuré que nous traitons tous les courriels le plus rapidement possible.</p>
             
+            {successMessage && <div className={styles.success}>{successMessage}</div>} {/* Display success message */}
+
             {/* Formulaire de contact */}
             <form action={formAction} className={styles.form} noValidate>
                 <div className={styles.row}>

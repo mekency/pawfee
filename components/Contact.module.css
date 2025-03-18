@@ -1,19 +1,20 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    max-width: 100%;
-    background: #f9f9f9;
+    gap: 1.5rem;
+    max-width: 600px;
+    background: rgb(219, 203, 179); /* Match homepage background color */
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    margin: 20px auto;
 }
+
 .form label {
     display: flex;
     flex-direction: column;
     font-weight: 600;
-    color: #333;
+    color: #444;
     text-align: left;
 }
 
@@ -21,60 +22,81 @@
 .form textarea {
     padding: 0.75rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
+    border-radius: 6px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
+    font-size: 1rem;
 }
 
 .form input:focus, 
 .form textarea:focus {
     border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
 }
+
 .container p {
     text-align: center;
     padding: 20px;
-    background-color: rgb(219, 203, 179);  
+    background-color: rgb(219, 203, 179); 
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
 }
 
 .form button {
-    padding: 0.75rem;
+    padding: 0.75rem 1.5rem;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    align-self: center;
 }
 
 .form button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .row {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .row label {
     flex: 1;
+    min-width: 200px;
 }
+
 .erreur {
     color: #a00;
     font-size: 0.875rem;
     margin-top: 0.25rem;
 }
 
+.success {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
 @media (max-width: 600px) {
+    .form {
+        padding: 1.5rem;
+    }
+
     .row {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
     }
-    
-    .form {
-        padding: 1rem;
+
+    .form button {
+        width: 100%;
     }
 }

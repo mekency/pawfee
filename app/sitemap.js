@@ -22,10 +22,34 @@ export default function sitemap() {
             priority: 0.8
         },
         {
-            url: 'http://localhost:3000/Menu',
+            url: 'http://localhost:3000/Cat1',
             lastModified: new Date(),
             changeFrequency: 'yearly',
-            priority: 0.8
+            priority: 0.5
+        },
+        {
+            url: 'http://localhost:3000/Cat2',
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.5
+        },
+        {
+            url: 'http://localhost:3000/Cat3',
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.5
+        },
+        {
+            url: 'http://localhost:3000/Cat4',
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.5
+        },
+        {
+            url: 'http://localhost:3000/Cat5',
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.5
         },
     ]
 }
